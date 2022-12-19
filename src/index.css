@@ -75,6 +75,11 @@ h2 {
   animation-delay: 0.8s;
 }
 
+/* current letters highlight */
+.row.current > div.filled {
+  animation: tileBounce 0.2s ease-in-out forwards;
+}
+
 /* animations */
 @keyframes tileFlip {
   0% {
@@ -99,10 +104,25 @@ h2 {
   }
 }
 
+@keyframes tileBounce {
+  0%{
+    transform: scale(1);
+    border-color: #3f3f3f;
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+    border-color: #6f6f6f;
+  }
+}
+
 /* 
 Fondo: #121212
 Blanco: white
 Gris: #757575
+Gris oscuro: #3f3f3f
 Verde: #43a047
 Amarillo: #e4a81d
 Teclas: #475569
