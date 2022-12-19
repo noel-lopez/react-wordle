@@ -12,6 +12,7 @@ function App() {
         const randomIndex = Math.floor(Math.random()*json.length)
         const randomSolution = json[randomIndex].word
         setSolution(randomSolution)
+        console.log('solution:', randomSolution)
       })
   }, []) 
 

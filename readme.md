@@ -6,7 +6,8 @@ To get the frontend running locally:
 
 - Clone this repo
 - `npm install` to install all req'd dependencies
-- `npm run dev` to start the local server (this project Vite)
+- `npm run dev` to start the local server for the frontend
+- `npm run json` to start the json server containing the list of possible words
 
 ## Functionality overview
 
