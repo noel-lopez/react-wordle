@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react"
 
 function App() {
+  const [solution, setSolution] = useState(null)
+
+  useEffect( () => {
+    fetch('http://localhost:3001/solutions')
+      .then(res => res.json())
+      .then(json => {
+        // random int between 0 & 14
+        const randomIndex = Math.floor(Math.random()*json.length)
+        const randomSolution = json[randomIndex].word
+        setSolution(randomSolution)
+      })
+  }, []) 
 
   return (
     <div className="App">
       <h1>Wordle (nlopez)</h1>
+      {solution && <div>Solution is: {solution}</div>}
     </div>
   )
 }
@@ -17,7 +31,7 @@ datos que necesito trackear:
   -- intentos pasados
     -- un array de intentos pasados
     -- cada intento pasado es un array de objetos [{}, {}, {}, {}, {}]
-    -- cada objeto representar una letra de la palabra de dicho intento {letter: 'a', color: 'yellow'}
+    -- cada objeto representa una letra de la palabra de dicho intento {letter: 'a', color: 'yellow'}
   -- intento actual
     -- string 'luffy'
   -- letras del teclado
