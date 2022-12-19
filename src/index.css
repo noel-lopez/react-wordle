@@ -88,13 +88,28 @@ h2 {
   font-weight: bold;
 }
 .keypad > div {
-  margin: 5px;
-  width: 40px;
+  margin: 2px;
+  width: 45px;
   height: 50px;
   background: #6d6e6f;
   display: inline-block;
   border-radius: 6px;
   line-height: 50px;
+}
+.keypad > div.grey {
+  background: #3a3a3c;
+  transition: all 0.3s ease-in;
+  transition-delay: 1s;
+}
+.keypad > div.yellow {
+  background: #e4a81d;
+  transition: all 0.3s ease-in;
+  transition-delay: 1s;
+}
+.keypad > div.green {
+  background: #43a047;
+  transition: all 0.3s ease-in;
+  transition-delay: 1s;
 }
 
 /* animations */
