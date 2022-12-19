@@ -42,6 +42,21 @@ h2 {
   font-size: 2.5em;
 }
 
+.row > div.grey {
+  background: #757575;
+  border-color: #757575;
+}
+
+.row > div.yellow {
+  background: #e4a81d;
+  border-color: #e4a81d;
+}
+
+.row > div.green {
+  background: #43a047;
+  border-color: #43a047;
+}
+
 /* 
 Fondo: #121212
 Blanco: white
