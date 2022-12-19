@@ -9,7 +9,28 @@ const useWordle = (solution) => {
 
   // format a guess into an array of letter objects [{key: 'a', color: 'yellow'}]
   const formatGuess = () => {
+    let solutionArray = [...solution]
+    let formattedGuess = [...currentGuess].map((l) => {
+      return {key: l, color: 'grey'}
+    })
 
+    // find any green letters
+    formattedGuess.forEach((l, i) => {
+      if(solutionArray[i] === l.key) {
+        formattedGuess[i].color = 'green'
+        solutionArray[i] = null
+      }
+    })
+
+    // find any yellow letters
+    formattedGuess.forEach((l, i) => {
+      if(solutionArray.includes(l.key) && l.color !== 'green') {
+        formattedGuess[i].color = 'yellow'
+        solutionArray[solutionArray.indexOf(l.key)] = null
+      }
+    })
+
+    return formattedGuess
   }
 
   // add a new guess to the guesses state
@@ -23,6 +44,27 @@ const useWordle = (solution) => {
   // if user presses enter, add the new guess
   const handleKeyUp = ({ key }) => {
     
+    if(key === 'Enter'){
+      // only add guess if turn is less than 5
+      if(turn > 5) {
+        console.log('you used all your guesses')
+        return
+      }
+      // do not allow duplicate words
+      if(history.includes(currentGuess)){
+        console.log('you already tried that word')
+        return
+      }
+      // check word is 5 chars long
+      if (currentGuess.length !== 5) {
+        console.log('word must be 5 chars long')
+        return
+      }
+
+      const formatted = formatGuess()
+      console.log(formatted)
+    }
+
     if(key === 'Backspace'){
       setCurrentGuess((prev) => {
         return prev.slice(0, -1) // remove last character
