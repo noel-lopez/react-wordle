@@ -4,6 +4,7 @@ import Wordle from "./components/Wordle"
 function App() {
   const [solution, setSolution] = useState(null)
 
+  // TODO: connect to mongoDB database instead of json-server
   useEffect( () => {
     fetch('http://localhost:3001/solutions')
       .then(res => res.json())
@@ -14,7 +15,7 @@ function App() {
         setSolution(randomSolution)
         console.log('solution:', randomSolution)
       })
-  }, []) 
+  }, []) // TODO: be able to get a random solution everytime is needed (game finished and user wants to try again)
 
   return (
     <div className="App">

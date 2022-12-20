@@ -15,6 +15,8 @@ export default function Modal({ isCorrect, turn, solution }) {
           <h1>You lost :(</h1>
           <p className='solution'>{solution}</p>
           <p>Better luck next time!</p>
+          {/* TODO: button to try again that generates another random solution */}
+          {/* TODO: button to close modal and see the game */}
         </div>
       )}
     </div>
