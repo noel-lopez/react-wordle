@@ -137,6 +137,20 @@ h2 {
   letter-spacing: 1px;
 }
 
+/* Loading spinner */
+
+.spinner {
+  position: absolute;
+  top: 30%;
+  left: 48%;
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #ef8aff6e transparent #ef8aff6e transparent;
+  border-radius: 50%;
+  animation: spin-anim 1.2s linear infinite;
+}
+
 /* animations */
 @keyframes tileFlip {
   0% {
@@ -172,6 +186,15 @@ h2 {
   100%{
     transform: scale(1);
     border-color: #6f6f6f;
+  }
+}
+
+@keyframes spin-anim {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
   }
 }
 

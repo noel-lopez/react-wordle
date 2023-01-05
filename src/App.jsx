@@ -1,27 +1,15 @@
-import { useEffect, useState } from "react"
 import Wordle from "./components/Wordle"
+import useRandomSolution from "./hooks/useRandomSolution"
 
 function App() {
-  const [solution, setSolution] = useState(null)
-
-  // TODO: connect to mongoDB database instead of json-server
-  useEffect( () => {
-    fetch('http://localhost:3001/solutions')
-      .then(res => res.json())
-      .then(json => {
-        // random int between 0 & 14
-        const randomIndex = Math.floor(Math.random()*json.length)
-        const randomSolution = json[randomIndex].word
-        setSolution(randomSolution)
-        console.log('solution:', randomSolution)
-      })
-  }, []) // TODO: be able to get a random solution everytime is needed (game finished and user wants to try again)
+  const {solution} = useRandomSolution()
 
   return (
     <div className="App">
-      <h1>WORDLE</h1>
+      <h1>Wordle</h1>
       <h2>noel-lopez</h2>
       {solution && <Wordle solution={solution} />}
+      {!solution && <div className="spinner"></div>}
     </div>
   )
 }
